@@ -1,0 +1,52 @@
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <h3>Seleccione Archivos</h3>
+      <div NgDropFiles
+           class="well drop-zone"
+           [ngClass]="{'file-over': estaSobre}"
+          (archivoSobre)="archivoSobreDropZone($event)">
+          <!--Aquí se envía lo que regrese archivoSobre *directiva* a archivoSobreDropZone() *componente* -->
+        <h4>Suelta los archivos aquí</h4>
+        <img src="/assets/img/drop-images.png" alt="">
+      </div>
+    </div>
+
+    <div class="col-md-8" style="margin-bottom:40px">
+      <h3>Cargar Archivos</h3>
+
+      <button (click)="cargarImagenesFirebase()"
+              [disabled]=" archivos.length == 0 || !permiteCargar"
+              type="button" class="btn btn-success"
+              name="button">
+              Cargar a firebase
+    </button>
+      <button (click)="limpiarArchivos()"
+              [disabled]=""
+              type="button"
+              class="btn btn-danger"
+              name="button">
+              Limpiar Archivos
+    </button>
+
+      <table class="table" *ngIf="archivos.length >0">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Nombre</th>
+            <th>Tamaño</th>
+            <th>Progreso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
