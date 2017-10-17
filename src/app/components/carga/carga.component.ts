@@ -16,7 +16,6 @@ export class CargaComponent   {
   constructor(public _cis:CargaImagenesService) { }
 
   archivoSobreDropZone(e:boolean){//En este metodo recibe lo que la directiva le manda y modifica el valor de esta Sobre
-    console.log(e);
     this.estaSobre=e;
   }
 
